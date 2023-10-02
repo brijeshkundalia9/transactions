@@ -18,6 +18,17 @@ public class TransactionController {
   @Autowired
   private TransactionService transactionService;
 
+  /**
+   * It is a restful API to add transaction
+   *
+   * It fetches account by provided account id and creates a new transaction in transactions table.
+   *
+   * 404 Not Found -- If account doesn't exist for provided account id.
+   * 201 Created -- For successful transaction creation.
+   *
+   * @param transactionDTO
+   * @return transactionDTO as response
+   */
   @PostMapping
   public ResponseEntity<TransactionDTO> addTransaction(@RequestBody @Valid TransactionDTO transactionDTO) {
     TransactionDTO transaction = transactionService.addTransaction(transactionDTO);
