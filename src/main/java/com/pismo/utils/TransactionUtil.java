@@ -10,14 +10,12 @@ public class TransactionUtil {
 
     float balance = creditTransaction.getAmount();
     for (Transaction transaction : transactions) {
-      if (balance > transaction.getAmount()) {
+      if (balance > (transaction.getBalance() * -1)) {
+        balance -= (transaction.getBalance() * -1);
         transaction.setBalance(0F);
-        balance -= transaction.getAmount();
-        if (balance == 0f) {
-          creditTransaction.setBalance(0F);
-        }
+        creditTransaction.setBalance(balance);
       } else {
-        float remainingBalance = transaction.getAmount() - balance;
+        float remainingBalance = transaction.getBalance() + balance;
         transaction.setBalance(remainingBalance);
         creditTransaction.setBalance(0F);
         break;
