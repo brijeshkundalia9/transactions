@@ -26,4 +26,6 @@ public class Transaction {
 
   private LocalDateTime eventDate;
 
+  private Float balance;
+
 }

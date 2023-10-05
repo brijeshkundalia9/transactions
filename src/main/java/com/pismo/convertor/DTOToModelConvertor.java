@@ -22,6 +22,7 @@ public class DTOToModelConvertor {
     transaction.setOperationTypeId(OperationType.getById(transactionDTO.getOperationTypeId()));
     transaction.setAmount(transactionDTO.getAmount());
     transaction.setEventDate(LocalDateTime.now());
+    transaction.setBalance(transaction.getAmount());
     return transaction;
   }
 }
